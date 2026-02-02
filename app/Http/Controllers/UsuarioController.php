@@ -37,19 +37,32 @@ class UsuarioController extends Controller
             return response()->json(['erro' => 'O usuário deve ser maior de 18 anos.'], 400);
         }
 
-        // Simulação de e-mail 
+        /* Simulação de e-mail 
+           Aqui seria verificado se o e-mail já existe no banco de dados.
+           Ex: if (User::where('email', $email)->exists()) { ... }
+        */
         if ($email === 'jaexiste@mds.gov.br') {
             return response()->json(['erro' => 'Este e-mail já está registrado.'], 400);
         }
 
-        // Inserção com sucesso 
+        /* AÇÃO FICTÍCIA: 
+           Aqui seria realizada a inserção real no banco de dados (MySQL/PostgreSQL).
+           Ex: User::create([...]);
+        */
+
+        // retorno manual para funcionamento da SPA
         return response()->json(['mensagem' => 'Registro realizado com sucesso!'], 201);
     }
 
     // Endpoint /listagem-usuarios 
     public function listagem()
     {
-        // Retorno manual para a tabela do Painel 
+        /* AÇÃO FICTÍCIA: 
+           Aqui as informações seriam resgatadas do banco de dados real 
+           Ex: $usuarios = User::all();
+        */
+           
+        // Retorno manual de dados para preencher a tabela no Front-end
         return response()->json([
             ['id' => 1, 'email' => 'joao@mds.gov.br', 'dt_nascimento' => '1990-01-01'],
             ['id' => 2, 'email' => 'maria@suas.gov.br', 'dt_nascimento' => '1985-05-15'],
